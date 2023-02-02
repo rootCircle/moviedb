@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieDB!</title>
+    <!-- Fonts and Stylesheets -->
+    <link rel="stylesheet" href="public\fonts\SFProDisplay\stylesheet.css" />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/reset.css" />
+  </head>
+  <body>
+    <div id="backdrop" class="hidden fadeout" tabindex="0"></div>
+    <div id="main-card-modal" class="modal">
+      <div class="modal-content">
+        <a href="#" class="modal-close">&times;</a>
+        <div id="display-card" class="glassy">
+          <div class="highlights">
+            <div class="poster-display">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
+                alt="image"
+              />
+            </div>
+            <div class="right-bar">
+              <div class="title-display">
+                <h1 class="title">[title]</h1>
+                <div class="attribute-display">
+                  <p class="subtitle">[imdbID]</p>
+                  <p class="subtitle">[Year]</p>
+                  <p class="subtitle">[time]</p>
+                </div>
+              </div>
+              <div class="rating-display">
+                <div class="rating detail badge">
+                  <p class="detail-title">imdb rating</p>
+                  <p class="detail-data">⭐ [rating]/10</p>
+                </div>
+              </div>
+              <div class="plot-display detail">
+                <div class="detail-title">plot</div>
+                <div class="detail-data">[plot here]</div>
+              </div>
+            </div>
+          </div>
+          <div class="details-display">
+            <div class="detail">
+              <p class="detail-title">Creators</p>
+              <p class="detail-data">Chakri</p>
+            </div>
+            <div class="detail">
+              <p class="detail-title">Actors</p>
+              <p class="detail-data">Chakri</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      id="search-component-form"
+      class="hidden to-top-animation"
+      tabindex="0"
+    >
+      <input
+        type="text"
+        name="search-query"
+        id="search-component-inp"
+        placeholder="Search for a movie/tv-show"
+      />
+      <button id="search-component-btn" class="btn">Search</button>
+    </div>
+    <nav class="main-nav glassy">
+      <a href="/" class="clickable">🍿 MovieDB</a>
+      <div class="nav-links center">
+        <div id="search-component">
+          <span id="search-component-text" class="clickable" tabindex="0"
+            >Search</span
+          >
+        </div>
+      </div>
+      <div class="nav-links right">
+        <button class="btn" title="Toggle Dark Mode" id="dark-mode-toggle">
+          <img src="/public/icons/moon.svg" alt="🕶️" class="light" />
+        </button>
+      </div>
+    </nav>
+    <main>
+      <div class="info-placeholder">
+        <div class="info">
+          <h1 class="title">Get movie details</h1>
+          <p class="subtitle">
+            Click on the
+            <span class="inline-btn" id="show-search-btn">Search button</span>
+            in the navbar to get started!
+          </p>
+        </div>
+      </div>
+      <section class="results hidden">
+        <h1 class="title">Search Results</h1>
+        <div id="search-results">
+          <!-- <div class="card search-result">
+          <div class="vinyl-record-card glassy">
+            <div class="vinyl-image-wrapper">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BOTA5NjhiOTAtZWM0ZC00MWNhLThiMzEtZDFkOTk2OTU1ZDJkXkEyXkFqcGdeQXVyMTA4NDI1NTQx._V1_SX300.jpg"
+                alt="image"
+              />
+            </div>
+            <div class="vinyl-info">
+              <div class="overflow-info">
+                <h2>
+                  <a class="clickable">Star Wars: Episode IV - A New Hope</a>
+                </h2>
+                <p>Year : 1977</p>
+                <p>imdbID : tt0076759</p>
+                <p>Type : movie</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        </div>
+      </section>
+    </main>
+    <script type="module" src="/scripts/index.js"></script>
+  </body>
+</html>
