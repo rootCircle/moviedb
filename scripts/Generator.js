@@ -21,6 +21,10 @@ export class Generator {
     image.loading = "lazy";
     image.height = "400";
     image.src = movieSearchResObj.Poster;
+    image.onerror = () => {
+      this.onerror = null;
+      this.src = "public/not-found.svg";
+    };
     // title
     let title = document.createElement("h2");
     title.classList.add("vinyl-info-title", "clickable");
