@@ -5,7 +5,7 @@ export default class Dialog {
 
   /**
    * @param  {Document} document document instance
-   * @param  {HTMLElement} htmlElement The HTML Element to embeded into the modal
+   * @param  {HTMLElement} htmlElement The HTML Element to embedded into the modal
    */
   constructor(document, htmlElement) {
     let dialogEl = document.createElement("dialog");
@@ -25,6 +25,7 @@ export default class Dialog {
     this.#dialogContent = dialogContent;
     this.#isInDOM = false;
   }
+
   /**
    * @param  {HTMLElement} DOMNode The DOM element to append the dialog to
    */
@@ -36,22 +37,35 @@ export default class Dialog {
     return this;
   }
 
+  /**
+   * Returns the HTML Node of the dialog
+   */
   getDialogNode() {
     return this.#dialogElement;
   }
 
+  /**
+   * Opens the dialog
+   */
   showDialog() {
     if (!this.#dialogElement.open) this.#dialogElement.showModal();
   }
 
+  /**
+   * Closes the dialog
+   */
   closeDialog() {
     if (this.#dialogElement.open) this.#dialogElement.close();
   }
 
+  /**
+   * Opens the dialog if its closed or closes it if its open
+   */
   toggleDialog() {
     if (this.#dialogElement.open) this.#dialogElement.close();
     else this.#dialogElement.showModal();
   }
+
   /**
    * @param  {HTMLElement} DOMNode
    */

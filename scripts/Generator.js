@@ -1,5 +1,6 @@
 export class Generator {
   /**
+   * Returns a HTML Node containing the details of the search result
    * @param  {import('./typedefs.js').SearchResult} movieSearchResObj
    */
   static generateSearchResultCard(movieSearchResObj, titleClickHandler = null) {
@@ -61,6 +62,9 @@ export class Generator {
   }
 
   // TODO: Add typedefs for the required parameters
+  /**
+   * Returns a HTML Node containing the details of the Movie Card
+   */
   static generateMainCard({
     Title,
     imdbID,

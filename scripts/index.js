@@ -25,6 +25,8 @@ const darkModeToggle = document.getElementById("dark-mode-toggle");
 const mainMovieDialog = new Dialog(document, document.createElement("div"));
 mainMovieDialog.appendTo(document.body);
 
+// Event Listeners
+
 showSearchBtn.addEventListener("click", () => {
   searchSpan.focus();
 });
