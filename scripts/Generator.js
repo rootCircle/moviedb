@@ -2,7 +2,11 @@ export class Generator {
   /**
    * @param  {import('./typedefs.js').SearchResult} movieSearchResObj
    */
-  static generateSearchResultCard(movieSearchResObj) {
+  static generateSearchResultCard(movieSearchResObj, titleClickHandler = null) {
+    // click handlers
+    function defaultTitleClickHandler(e) {
+      console.log({ target: e.target });
+    }
     //  divs
     let searchResultNode = document.createElement("div");
     searchResultNode.classList.add("card", "search-result");
@@ -27,8 +31,10 @@ export class Generator {
     };
     // title
     let title = document.createElement("h2");
+    title.setAttribute("data-id", movieSearchResObj.imdbID);
     title.classList.add("vinyl-info-title", "clickable");
     title.innerText = movieSearchResObj.Title;
+    title.onclick = titleClickHandler || defaultTitleClickHandler;
     // link
     // let link = document.createElement("a");
     // link.href = `/showcase?id=${movieSearchResObj.imdbID}`;
