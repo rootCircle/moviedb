@@ -463,6 +463,7 @@ section.results.hidden {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   color: #fff;
   transition: transform 0.5s ease;
+  border-radius: var(--border-radius);
 }
 
 .vinyl-info:hover .overflow-info {
@@ -487,7 +488,7 @@ img.dark {
 .modal {
   visibility: hidden;
   opacity: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -500,7 +501,7 @@ img.dark {
   z-index: 10;
 }
 
-.modal:target {
+.modal.open {
   visibility: visible;
   opacity: 1;
 }
