@@ -54,5 +54,71 @@ export class Generator {
     return searchResultNode;
   }
 
-  static generateMainCard;
+  // TODO: Add typedefs for the required parameters
+  static generateMainCard({
+    Title,
+    imdbID,
+    Year,
+    Runtime,
+    imdbRating,
+    Ratings,
+    Plot,
+    Director,
+    Writer,
+    Poster,
+    Actors,
+  }) {
+    console.log({ Ratings });
+    let returnDiv = document.createElement("div");
+    returnDiv.innerHTML = `
+        <div class="display-card">
+          <div class="highlights">
+            <div class="poster-display">
+              <img
+                src="${Poster}"
+                alt="image"
+              />
+            </div>
+            <div class="right-bar">
+              <div class="title-display">
+                <h1 class="title">${Title}</h1>
+                <div class="attribute-display">
+                  <p class="subtitle">${imdbID}</p>
+                  <p class="subtitle">${Year}</p>
+                  <p class="subtitle">${Runtime}</p>
+                </div>
+              </div>
+              <div class="rating-display">
+                <div class="rating detail badge">
+                  <p class="detail-title">IMDB Rating</p>
+                  <p class="detail-data">⭐ ${imdbRating}/10</p>
+                </div>
+              ${Ratings.map((rating) => {
+                return `
+                  <div class="rating detail badge">
+                    <p class="detail-title">${rating.Source}</p>
+                    <p class="detail-data">⭐ ${rating.Value}</p>
+                  </div>
+                  `;
+              }).join("")}
+                </div>
+              <div class="plot-display detail">
+                <div class="detail-title">plot</div>
+                <div class="detail-data">${Plot}</div>
+              </div>
+            </div>
+          </div>
+          <div class="details-display">
+            <div class="detail">
+              <p class="detail-title">Creators</p>
+              <p class="detail-data">${Director} (Director), ${Writer} (Writer)</p>
+            </div>
+            <div class="detail">
+              <p class="detail-title">Actors</p>
+              <p class="detail-data">${Actors}</p>
+            </div>
+          </div>
+        </div>`;
+    return returnDiv;
+  }
 }

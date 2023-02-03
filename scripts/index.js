@@ -3,6 +3,7 @@
 
 import { Generator } from "./Generator.js";
 import config from "../config.js";
+import Dialog from "./Dialog.js";
 
 const { API_KEY } = config;
 
@@ -19,6 +20,10 @@ const resultsSection = document.querySelector("section.results");
 
 // TODO: Add dark-mode toggle
 const darkModeToggle = document.getElementById("dark-mode-toggle");
+
+// Creating the main dialog
+const mainMovieDialog = new Dialog(document, document.createElement("div"));
+mainMovieDialog.appendTo(document.body);
 
 showSearchBtn.addEventListener("click", () => {
   searchSpan.focus();
@@ -47,7 +52,23 @@ async function searchUsingAPI() {
   console.log({ results });
   searchBtn.classList.remove("is-loading");
   results.forEach((searchResult) => {
-    searchResults.appendChild(Generator.generateSearchResultCard(searchResult));
+    searchResults.appendChild(
+      Generator.generateSearchResultCard(searchResult, async (e) => {
+        /** @type {HTMLElement} */
+        let target = e.target;
+
+        let { id } = target.dataset;
+        console.log({ id, API_KEY });
+        // fetch data from the API
+        let res = await fetch(
+          `https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}&plot=full`
+        );
+        let data = await res.json();
+        console.log({ data });
+        mainMovieDialog.replaceContent(Generator.generateMainCard(data));
+        mainMovieDialog.showDialog();
+      })
+    );
   });
   resultsSection.classList.remove("hidden");
 }

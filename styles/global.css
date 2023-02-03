@@ -518,3 +518,39 @@ img.dark {
   border-radius: 4px;
   position: relative;
 }
+
+.dialog {
+  width: fit-content;
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--btn-box-shadow);
+  position: relative;
+  max-width: 80%;
+}
+
+.dialog::backdrop {
+  backdrop-filter: blur(5px);
+  background-color: var(--bg-dark);
+}
+
+.dialog-close {
+  border: none;
+  background-color: inherit;
+  font-size: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  place-content: center;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 5px;
+  border-radius: var(--border-radius);
+}
+
+.dialog-close:hover {
+  cursor: pointer;
+  background: var(--secondary-light);
+  color: #fff;
+}
