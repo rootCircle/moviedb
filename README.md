@@ -30,6 +30,6 @@ You can use an extension called [Live Server](https://marketplace.visualstudio.c
 
 After you start the server, live server automatically opens a browser window with the index.html file open
 
-## Contributing Guidelines
+## [Contributing Guidelines](CONTRIBUTING.md)
 
 Contributing guidelines for this repository are available [here](CONTRIBUTING.md). Please read them before you start contributing.
