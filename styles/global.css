@@ -591,6 +591,8 @@ img.dark {
 }
 footer{
   position:absolute; 
+  width:100%;
+  overflow: hidden;
 }
 .foot-box{
   padding: 20px;
