@@ -586,3 +586,12 @@ img.dark {
   background: var(--secondary-light);
   color: #fff;
 }
+
+.foot-box{
+  padding: 20px;
+  background-color: #bafcde;
+}
+#foot-p{
+  color:rgba(255, 0, 0, 0.705);
+  font-weight: bold;
+}
